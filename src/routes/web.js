@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-router.get('/', (req, res) => {
-  res.send('xin chao')
-})
+const {getHomePage, getTest} = require('../controller/homeController')
 
-router.get('/image', (req, res) => {
-  res.render('sample.ejs')
-})
+
+// router.Method('/route', handle);
+router.get('/', getHomePage);
+
+router.get('/test', getTest);
 
 module.exports = router;
