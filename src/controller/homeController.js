@@ -1,5 +1,16 @@
+const connection = require('../config/database');
+
+
 const getHomePage = (req, res) => {
-    res.send('Welcome homepage');
+    let users = [];
+    connection.query(
+      'select * from Users u ;',
+      function (err, results, fields) {
+        users = results;
+        console.log(results);
+        res.send(JSON.stringify(users));
+      }
+    );
 } 
 
 const getTest = (req, res) => {
